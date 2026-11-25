@@ -1,1 +1,66 @@
-[]
+'use strict';
+
+require('dotenv').config();
+
+function parseList(value) {
+  return String(value || '')
+    .split(',')
+    .map((item) => item.trim().toLowerCase().replace(/^@/, ''))
+    .filter(Boolean);
+}
+
+// Bot Owner username (Instagram username, lowercase, without @).
+// Replace YOUR_INSTAGRAM_USERNAME with your own username.
+const OWNER_USERNAMES_IN_FILE = ['YOUR_INSTAGRAM_USERNAME'];
+
+const ownerUsernames = Array.from(
+  new Set([
+    ...OWNER_USERNAMES_IN_FILE.map((u) => u.toLowerCase()),
+    ...parseList(process.env.OWNER_USERNAMES),
+  ])
+);
+
+module.exports = {
+  bot: {
+    name: 'SALIM IG GC BOT',
+    version: '1.0.0',
+    developer: 'Selim Ahmad',
+    description: 'A modular Instagram Group Chat bot built with Node.js',
+  },
+
+  prefix: process.env.PREFIX || '!',
+
+  owner: {
+    name: 'Selim Ahmad',
+    usernames: ownerUsernames,
+  },
+
+  timezone: 'Asia/Dhaka',
+
+  commands: {
+    cooldownSeconds: 3,
+    maxInputLength: 500,
+    maxSayLength: 300,
+  },
+
+  autoReply: {
+    enabled: true,
+    cooldownSeconds: 10,
+  },
+
+  welcome: {
+    enabled: true,
+  },
+
+  instagram: {
+    sessionFile: process.env.IG_SESSION_FILE || 'session.json',
+    sessionEnvName: 'IG_SESSION',
+    reconnectDelaySeconds: 30,
+    maxReconnectAttempts: 10,
+    duplicateCacheSize: 500,
+  },
+
+  server: {
+    port: Number(process.env.PORT) || 3000,
+  },
+};
