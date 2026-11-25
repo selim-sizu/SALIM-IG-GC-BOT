@@ -1,1 +1,19 @@
-[]
+{
+  "name": "salim-ig-gc-bot",
+  "version": "1.0.0",
+  "description": "SALIM IG GC BOT - Instagram Group Chat Bot by Selim Ahmad",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Selim Ahmad",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "instagram-private-api": "^1.46.1",
+    "instagram_mqtt": "^1.0.0"
+  }
+}
