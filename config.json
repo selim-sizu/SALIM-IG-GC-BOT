@@ -11,7 +11,7 @@ function parseList(value) {
 
 // Bot Owner username (Instagram username, lowercase, without @).
 // Replace YOUR_INSTAGRAM_USERNAME with your own username.
-const OWNER_USERNAMES_IN_FILE = ['YOUR_INSTAGRAM_USERNAME'];
+const OWNER_USERNAMES_IN_FILE = ['salim_bbz9x'];
 
 const ownerUsernames = Array.from(
   new Set([
@@ -24,7 +24,7 @@ module.exports = {
   bot: {
     name: 'SALIM IG GC BOT',
     version: '1.0.0',
-    developer: 'Selim Ahmad',
+    developer: 'Selim Sizu',
     description: 'A modular Instagram Group Chat bot built with Node.js',
   },
 
